@@ -1,5 +1,5 @@
 ![Sensibill](Sensibill-Logo.png)
 
-iOS Standalone Capture Module
+Sensibill Capture Module - iOS
 
 # [Version: 1.0.0](https://sensibill.github.io/ios-capture-documentation/)

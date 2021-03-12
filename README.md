@@ -2,4 +2,4 @@
 
 Sensibill Capture Module - iOS
 
-# [Version: 1.0.0](https://sensibill.github.io/ios-capture-documentation/)
+# [Version: 1.2.6](https://sensibill.github.io/ios-capture-documentation/)

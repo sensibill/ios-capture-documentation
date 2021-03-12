@@ -45,22 +45,34 @@
             <a class="nav-group-name-link" href="Guides.html">Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="installation.html">Installation</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="compatibility.html">Compatibility</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="customization.html">Customization</a>
+                <a class="nav-group-task-link" href="installation.html">Installation</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="entry-points.html">Entry Points</a>
+                <a class="nav-group-task-link" href="setup.html">Setup</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="integration.html">Integration</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="using-in-objective-c.html">Using in Objective-C</a>
+                <a class="nav-group-task-link" href="customization.html">Customization</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="using-objective-c.html">Using Objective-C</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="troubleshooting.html">Troubleshooting</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="reference.html">Reference</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="changelog.html">Changelog</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="migration-guide.html">Migration Guide</a>
               </li>
             </ul>
           </li>
@@ -75,6 +87,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/CaptureConfiguration.html">CaptureConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CaptureConfigurationBuilder.html">CaptureConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/CaptureFeatures.html">CaptureFeatures</a>
@@ -121,9 +136,6 @@
                 <a class="nav-group-task-link" href="Extensions/Float.html">Float</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Extensions/UIButton.html">UIButton</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/UIColor.html">UIColor</a>
               </li>
               <li class="nav-group-task">
@@ -138,16 +150,10 @@
             <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/ButtonTheme.html">ButtonTheme</a>
+                <a class="nav-group-task-link" href="Protocols/CaptureLocationProvider.html">CaptureLocationProvider</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/CaptureNavigationControllerDelegate.html">CaptureNavigationControllerDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/Presentable.html">Presentable</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/PresentableButton.html">PresentableButton</a>
               </li>
             </ul>
           </li>
@@ -158,28 +164,61 @@
         <section class="section">
           <div class="section-content top-matter">
             
-            <h1 id='sensibill-capture-ios' class='heading'>Sensibill Capture - iOS</h1>
+            <h1 id='integration' class='heading'>Integration</h1>
+<h2 id='overview' class='heading'>Overview</h2>
 
 <p>Sensibill Capture is a standalone framework or static library that allows for the scanning and cropping of receipts and documents. The module can scan and return up to three documents simultaneously to the integrator&rsquo;s app.</p>
-<h2 id='requirements' class='heading'>Requirements</h2>
-
-<ul>
-<li>iOS 11.0 +</li>
-<li>Xcode 11.0 +</li>
-<li>Cocoapods 1.9.3</li>
-</ul>
-<h2 id='installation' class='heading'>Installation</h2>
-
-<p>You can use CocoaPods to install <code>SensibillCapture</code> by adding it to your <code>Podfile</code>:</p>
-<pre class="highlight ruby"><code><span class="c1"># To use as a dynamic framework (Recommended)</span>
-<span class="n">pod</span> <span class="s1">'SensibillCapture'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'git@github.com:sensibill/sdk-ios-capture.git'</span>
-
-<span class="c1"># To use as a static library</span>
-<span class="n">pod</span> <span class="s1">'SensibillCaptureStatic'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'git@github.com:sensibill/sdk-ios-capture.git'</span>
+<h2 id='importing-capture-module' class='heading'>Importing Capture Module</h2>
+<h3 id='swift' class='heading'>Swift</h3>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SensibillCapture</span>
 </code></pre>
-<h2 id='usage' class='heading'>Usage</h2>
+<h3 id='objective-c' class='heading'>Objective-C</h3>
+<pre class="highlight objective_c"><code><span class="k">@import</span> <span class="n">SensibillCapture</span><span class="p">;</span>
+</code></pre>
 
-<p>The module is presented modally as the first view is a camera preview. To initialize and present the default module use the following:</p>
+<p><strong>Note:</strong> CocoaPods must be used if you want to include Capture as a static module. In this case use the following import statement in swift.</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SensibillCaptureStatic</span>
+</code></pre>
+<h2 id='implementing-a-capture-delegate' class='heading'>Implementing a Capture Delegate</h2>
+
+<p>Capture provides a <code><a href="Protocols/CaptureNavigationControllerDelegate.html">CaptureNavigationControllerDelegate</a></code> protocol to return an array of captured images back to the integrator&rsquo;s app.  The protocol can be implemented as an extension to an existing class, which instantiates capture (as shown below), or in a different class.</p>
+
+<p>The <code><a href="Protocols/CaptureNavigationControllerDelegate.html">CaptureNavigationControllerDelegate</a></code> will return 1-3 photos captured by a user in an <code>images</code> array. If a user cancels the operation, or an error occurrs the <code>images</code> array will be empty.</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">YourClass</span><span class="p">:</span> <span class="kt">CaptureNavigationControllerDelegate</span> <span class="p">{</span>
+
+     <span class="kd">func</span> <span class="nf">captureNavigationController</span><span class="p">(</span><span class="n">_</span> <span class="nv">controller</span><span class="p">:</span> <span class="kt">CaptureNavigationController</span><span class="p">,</span> <span class="n">didCapture</span> <span class="nv">images</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIImage</span><span class="p">])</span> <span class="p">{</span>
+
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Received </span><span class="se">\(</span><span class="n">images</span><span class="o">.</span><span class="n">count</span><span class="se">)</span><span class="s"> photos"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='sending-images-to-the-sensibill-api' class='heading'>Sending Images to the Sensibill API</h3>
+
+<p>One of the common use cases for the Capture module is sending the resulting images to Sensibill&rsquo;s API for receipt processing. To ensure a successful processing of the receipt by Sensibill&rsquo;s API, the images must comply with the size and quality requirements specified in Sensibill API documentation. </p>
+
+<p>The Capture module provides a <code>jpegDataForSensibillAPI()</code> method in a <code>UIImage</code> extension, which converts images to a format optimal for the Sensibill API. The method can be used upon receival of the images in the  <code>didCapture</code> method described above:</p>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">captureNavigationController</span><span class="p">(</span><span class="n">_</span> <span class="nv">controller</span><span class="p">:</span> <span class="kt">CaptureNavigationController</span><span class="p">,</span> <span class="n">didCapture</span> <span class="nv">images</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIImage</span><span class="p">])</span> <span class="p">{</span>
+
+    <span class="k">for</span> <span class="n">image</span> <span class="k">in</span> <span class="n">images</span> <span class="p">{</span>
+
+        <span class="k">let</span> <span class="nv">jpegData</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="nf">jpegDataForSensibillAPI</span><span class="p">()</span>
+        <span class="c1">// Submit jpegData to Sensibill API</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id='presenting-capture' class='heading'>Presenting Capture</h2>
+
+<p>The module starts with the camera preview, and is presented modally. To initialize and present the module:</p>
+
+<ol>
+<li>Import <code>SensibillCapture</code> or <code>SensibillCaptureStatic</code> as explained above.</li>
+<li>Instantiate <code><a href="Classes/CaptureNavigationController.html">CaptureNavigationController</a></code></li>
+<li>Select a <code>modalPresentationStyle</code> for the <code><a href="Classes/CaptureNavigationController.html">CaptureNavigationController</a></code>.</li>
+<li>Set a <code>captureDelegate</code> for <code><a href="Classes/CaptureNavigationController.html">CaptureNavigationController</a></code>.</li>
+<li>Present the <code><a href="Classes/CaptureNavigationController.html">CaptureNavigationController</a></code>.</li>
+</ol>
+
+<p>In the following example, <code>overFullScreen</code> was selected as the <code>modalPresentationStyle</code>, and <code>captureDelegate</code> is set to the class itself, assuming <code>extension YourClass: CaptureNavigationControllerDelegate</code> was implemented:</p>
 <pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SensibillCapture</span>
 <span class="c1">// or SensibillCaptureStatic if using the static library option</span>
 
@@ -190,207 +229,13 @@
 <span class="o">...</span>
 
     <span class="k">let</span> <span class="nv">captureNavigationController</span> <span class="o">=</span> <span class="kt">CaptureNavigationController</span><span class="p">()</span>
-    <span class="n">captureNavigationController</span><span class="o">.</span><span class="n">modalPresentationStyle</span> <span class="o">=</span> <span class="o">.</span><span class="n">fullScreen</span>
+    <span class="n">captureNavigationController</span><span class="o">.</span><span class="n">modalPresentationStyle</span> <span class="o">=</span> <span class="o">.</span><span class="n">overFullScreen</span>
     <span class="n">captureNavigationController</span><span class="o">.</span><span class="n">captureDelegate</span> <span class="o">=</span> <span class="k">self</span>
     <span class="nf">present</span><span class="p">(</span><span class="n">captureNavigationController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
 
 <span class="o">...</span>
 
 <span class="p">}</span>
-
-<span class="c1">// Implement the protocol method</span>
-<span class="kd">extension</span> <span class="kt">YourClass</span><span class="p">:</span> <span class="kt">CaptureNavigationControllerDelegate</span> <span class="p">{</span>
-
-    <span class="c1">// This will be called when the module is complete</span>
-     <span class="kd">func</span> <span class="nf">captureNavigationController</span><span class="p">(</span><span class="n">_</span> <span class="nv">controller</span><span class="p">:</span> <span class="kt">CaptureNavigationController</span><span class="p">,</span> <span class="n">didCapture</span> <span class="nv">images</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIImage</span><span class="p">])</span> <span class="p">{</span>
-        <span class="c1">// One to Three photos will be returned</span>
-        <span class="nf">print</span><span class="p">(</span><span class="s">"Received </span><span class="se">\(</span><span class="n">images</span><span class="o">.</span><span class="n">count</span><span class="se">)</span><span class="s"> photos"</span><span class="p">)</span>
-    <span class="p">}</span>
-
-<span class="p">}</span>
-
-</code></pre>
-<h2 id='configuration' class='heading'>Configuration</h2>
-<h3 id='overriding-images-colors-strings-amp-configurations' class='heading'>Overriding Images, Colors, Strings, &amp; Configurations</h3>
-
-<ol>
-<li>Add your images and colors to an assets folder called <code>SensibillAssets.xcassets</code> in your project or in a custom bundle. The color or image should have the same name as the one you&rsquo;re overriding.</li>
-<li>Add your configurations to a plist named <code>SensibillConfiguration.plist</code> in your project or in a custom bundle. The key name should be the same as the one you&rsquo;re overriding.</li>
-<li>Specify keys for strings you&rsquo;d like to override in a <code>Localizable.strings</code> file.</li>
-<li>Initialize the module with the bundle that contains your <code>SensibillAssets.xcassets</code>, <code>SensibillConfiguration.plist</code>, and/or <code>Localizable.strings</code> files. This is commonly your main application bundle but you may choose to create a new resource bundle.</li>
-</ol>
-
-<p><strong>Example</strong></p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">bundle</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span>
-<span class="c1">// or if creating a new resource bundle in your project:</span>
-<span class="k">let</span> <span class="nv">bundle</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">path</span><span class="p">(</span><span class="nv">forResource</span><span class="p">:</span> <span class="s">"MyBundleName"</span><span class="p">,</span> <span class="nv">ofType</span><span class="p">:</span> <span class="s">"bundle"</span><span class="p">)</span>
-
-<span class="k">let</span> <span class="nv">captureConfig</span> <span class="o">=</span> <span class="kt">CaptureConfiguration</span><span class="p">(</span><span class="nv">bundle</span><span class="p">:</span> <span class="n">bundle</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">captureNavigationController</span> <span class="o">=</span> <span class="kt">CaptureNavigationController</span><span class="p">(</span><span class="nv">config</span><span class="p">:</span> <span class="n">captureConfig</span><span class="p">)</span>
-</code></pre>
-
-<p><strong>Note:</strong> If you are not using your main application bundle and you are including custom colors in the bundle, you will need to compile your assets using the following run script:</p>
-<pre class="highlight shell"><code><span class="nv">PATH_TO_BUNDLE</span><span class="o">=</span><span class="k">${</span><span class="nv">PROJECT_DIR</span><span class="k">}</span>/Custom.bundle/
-<span class="nv">PATH_TO_ASSETS</span><span class="o">=</span><span class="k">${</span><span class="nv">PROJECT_DIR</span><span class="k">}</span>/Custom.bundle/SensibillAssets.xcassets
-xcrun actool <span class="k">${</span><span class="nv">PATH_TO_ASSETS</span><span class="k">}</span> <span class="nt">--compile</span> <span class="k">${</span><span class="nv">PATH_TO_BUNDLE</span><span class="k">}</span> <span class="nt">--platform</span> iphoneos <span class="nt">--minimum-deployment-target</span> <span class="k">${</span><span class="nv">IPHONEOS_DEPLOYMENT_TARGET</span><span class="k">}</span>
-</code></pre>
-<h3 id='overriding-colors-programatically' class='heading'>Overriding Colors Programatically</h3>
-
-<p><strong>Swift</strong></p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">bundle</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span>
-<span class="c1">// or if creating a new resource bundle in your project:</span>
-<span class="k">let</span> <span class="nv">bundle</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">path</span><span class="p">(</span><span class="nv">forResource</span><span class="p">:</span> <span class="s">"MyBundleName"</span><span class="p">,</span> <span class="nv">ofType</span><span class="p">:</span> <span class="s">"bundle"</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
-
-<span class="c1">// Create Defaults</span>
-<span class="c1">// Colors defined in the default theme will have module wide effects</span>
-<span class="k">let</span> <span class="nv">defaultTheme</span> <span class="o">=</span> <span class="kt">DefaultTheme</span><span class="p">(</span><span class="nv">overrideBundle</span><span class="p">:</span> <span class="n">customBundle</span><span class="p">)</span>
-<span class="n">defaultTheme</span><span class="o">.</span><span class="n">uiSecondaryBackground</span> <span class="o">=</span> <span class="o">.</span><span class="n">purple</span>
-
-<span class="c1">// Create Capture theme with defaults</span>
-<span class="c1">// Colors defined in the capture theme will customize individual components, overriding colors provided by the default theme</span>
-<span class="k">let</span> <span class="nv">captureTheme</span> <span class="o">=</span> <span class="kt">CaptureTheme</span><span class="p">(</span><span class="n">defaults</span><span class="p">:</span> <span class="n">defaultTheme</span><span class="p">)</span>
-<span class="n">captureTheme</span><span class="o">.</span><span class="n">cropDoneButtonBackgroundColor</span> <span class="o">=</span> <span class="o">.</span><span class="n">green</span>
-
-<span class="c1">// Create and pass configs to the capture module</span>
-<span class="k">let</span> <span class="nv">captureConfig</span> <span class="o">=</span> <span class="kt">CaptureConfiguration</span><span class="p">(</span><span class="nv">theme</span><span class="p">:</span> <span class="n">captureTheme</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">capture</span> <span class="o">=</span> <span class="kt">CaptureNavigationController</span><span class="p">(</span><span class="nv">config</span><span class="p">:</span> <span class="n">captureConfig</span><span class="p">)</span>
-
-<span class="c1">// Present it</span>
-<span class="n">capture</span><span class="o">.</span><span class="n">modalPresentationStyle</span> <span class="o">=</span> <span class="o">.</span><span class="n">fullScreen</span>
-<span class="n">capture</span><span class="o">.</span><span class="n">captureDelegate</span> <span class="o">=</span> <span class="k">self</span>
-<span class="nf">present</span><span class="p">(</span><span class="n">capture</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
-</code></pre>
-
-<p><strong>Objective-C</strong></p>
-<pre class="highlight objective_c"><code><span class="c1">// Get configuration bundle (optional)</span>
-<span class="n">NSBundle</span> <span class="o">*</span><span class="n">customBundle</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSBundle</span> <span class="nf">mainBundle</span><span class="p">];</span>
-<span class="c1">// or if creating a new resource bundle in your project:</span>
-<span class="n">NSBundle</span> <span class="o">*</span><span class="n">customBundle</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSBundle</span> <span class="nf">bundleWithPath</span><span class="p">:</span> <span class="p">[[</span><span class="n">NSBundle</span> <span class="nf">mainBundle</span><span class="p">]</span> <span class="nf">pathForResource</span><span class="p">:</span><span class="s">@"CustomBundle"</span> <span class="nf">ofType</span><span class="p">:</span><span class="s">@"bundle"</span><span class="p">]];</span>
-
-<span class="c1">// Create Defaults</span>
-<span class="n">SBLDefaultTheme</span> <span class="o">*</span><span class="n">defaults</span> <span class="o">=</span> <span class="p">[[</span><span class="n">SBLDefaultTheme</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithOverrideBundle</span><span class="p">:</span><span class="n">customBundle</span><span class="p">];</span>
-<span class="n">defaults</span><span class="p">.</span><span class="n">uiSecondaryBackground</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">purpleColor</span><span class="p">];</span>
-
-<span class="c1">// Colors defined in the default theme will have module wide effects</span>
-
-<span class="c1">// Create Capture theme with defaults</span>
-<span class="n">SBLCaptureTheme</span> <span class="o">*</span><span class="n">captureTheme</span> <span class="o">=</span> <span class="p">[[</span><span class="n">SBLCaptureTheme</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithDefaults</span><span class="p">:</span><span class="n">defaults</span><span class="p">];</span>
-<span class="n">captureTheme</span><span class="p">.</span><span class="n">capturePreviewDoneButtonBackgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">greenColor</span><span class="p">];</span>
-
-<span class="c1">// Colors defined in the capture theme will customize individual components, overriding colors provided by the default theme</span>
-
-<span class="c1">// Create Config with capture theme</span>
-<span class="n">SBLCaptureConfiguration</span> <span class="o">*</span><span class="n">config</span> <span class="o">=</span> <span class="p">[[</span><span class="n">SBLCaptureConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithTheme</span><span class="p">:</span><span class="n">captureTheme</span> <span class="nf">features</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-
-<span class="c1">// Create and pass configs to the capture module</span>
-<span class="n">SBLCaptureNavigationController</span> <span class="o">*</span><span class="n">capture</span> <span class="o">=</span> <span class="p">[[</span><span class="n">SBLCaptureNavigationController</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithConfig</span><span class="p">:</span><span class="n">config</span><span class="p">];</span>
-
-<span class="c1">// Present it</span>
-<span class="n">capture</span><span class="p">.</span><span class="n">modalPresentationStyle</span> <span class="o">=</span> <span class="n">UIModalPresentationFullScreen</span><span class="p">;</span>
-<span class="p">[</span><span class="n">self</span> <span class="nf">presentViewController</span><span class="p">:</span><span class="n">capture</span> <span class="nf">animated</span><span class="p">:</span><span class="nb">YES</span> <span class="n">completion</span><span class="o">:</span><span class="nb">nil</span><span class="p">];</span>
-</code></pre>
-<h3 id='configuring-fonts-programmatically' class='heading'>Configuring Fonts Programmatically</h3>
-
-<p>The <code><a href="Classes/DefaultTheme.html">DefaultTheme</a></code> object has a property called <code>fonts</code> that allows the integrator to override the three default font styles (<code>Regular</code>, <code>SemiBold</code>, and <code>Bold</code>) via the <code>defaults</code> property by passing a <code><a href="Classes/FontSet.html">FontSet</a></code>. The integrator also has more fine-grained control and can override the ten font styles used throughout the module:</p>
-
-<ul>
-<li><em>body</em></li>
-<li><em>subhead</em></li>
-<li><em>headline</em></li>
-<li><em>largeTitle</em></li>
-<li><em>title</em></li>
-<li><em>titleTwo</em></li>
-<li><em>titleThree</em></li>
-<li><em>footnote</em></li>
-<li><em>callout</em></li>
-<li><em>captionOne</em></li>
-<li><em>captionTwo</em></li>
-</ul>
-
-<p><strong>Example</strong></p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">myRegularFont</span> <span class="o">=</span> <span class="kt">UIFont</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"Zapfino"</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="mi">12</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">mySemiboldFont</span> <span class="o">=</span> <span class="kt">UIFont</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"Georgia-Regular"</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="mi">12</span><span class="p">)</span> <span class="c1">// optional, will be mapped to bold if not provided</span>
-<span class="k">let</span> <span class="nv">myBoldFont</span> <span class="o">=</span> <span class="kt">UIFont</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"Georgia-Bold"</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="mi">12</span><span class="p">)</span>
-
-<span class="k">let</span> <span class="nv">myFontSet</span> <span class="o">=</span> <span class="kt">FontSet</span><span class="p">(</span><span class="nv">regular</span><span class="p">:</span> <span class="n">myRegularFont</span><span class="p">,</span> <span class="nv">semibold</span><span class="p">:</span> <span class="n">mySemiboldFont</span><span class="p">,</span> <span class="nv">bold</span><span class="p">:</span> <span class="n">myBoldFont</span><span class="p">)</span>
-
-<span class="k">let</span> <span class="nv">defaultTheme</span> <span class="o">=</span> <span class="kt">DefaultTheme</span><span class="p">(</span><span class="nv">overrideBundle</span><span class="p">:</span> <span class="n">customBundle</span><span class="p">)</span>
-<span class="c1">// Override the default fonts that are mapped to the 10 font styles</span>
-<span class="n">defaultTheme</span><span class="o">.</span><span class="n">fonts</span><span class="o">.</span><span class="n">defaults</span> <span class="o">=</span> <span class="n">myFontSet</span>
-<span class="c1">// Override a specific font style and size</span>
-<span class="n">defaultTheme</span><span class="o">.</span><span class="n">fonts</span><span class="o">.</span><span class="n">titleThree</span> <span class="o">=</span> <span class="kt">UIFont</span><span class="o">.</span><span class="nf">systemFont</span><span class="p">(</span><span class="nv">ofSize</span><span class="p">:</span> <span class="mi">50</span><span class="p">)</span>
-</code></pre>
-<h3 id='configuring-feature-flags' class='heading'>Configuring Feature Flags</h3>
-
-<p>The capture module provides the object <code><a href="Classes/CaptureFeatures.html">CaptureFeatures</a></code>, which holds all of its feature flags. Create an instance of this object and then access and set the flags as properties of the object. Finally, pass the object to your <code><a href="Classes/CaptureConfiguration.html">CaptureConfiguration</a></code> object that you&rsquo;re using to initialize the module.</p>
-
-<p><strong>Feature Flags</strong></p>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th style="text-align: center">Description</th>
-<th style="text-align: right">Default Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>enableBlurDetection</td>
-<td style="text-align: center">Enables a blur warning on the preview screen after capturing (<em>Note: this feature is only available on the iPhone 6s and newer</em>)</td>
-<td style="text-align: right">true</td>
-</tr>
-<tr>
-<td>enableFeedbackToast</td>
-<td style="text-align: center">Enables feedback toast on the capture screen</td>
-<td style="text-align: right">true</td>
-</tr>
-<tr>
-<td>enableAutoCapture</td>
-<td style="text-align: center">Enables the auto-capture feature</td>
-<td style="text-align: right">true</td>
-</tr>
-<tr>
-<td>enableImageGallery</td>
-<td style="text-align: center">Enables the user to select an image from their phone&rsquo;s image gallery</td>
-<td style="text-align: right">true</td>
-</tr>
-<tr>
-<td>enableAddPage</td>
-<td style="text-align: center">Enables the user to create multi-page receipts</td>
-<td style="text-align: right">true</td>
-</tr>
-<tr>
-<td>enableLongCapture</td>
-<td style="text-align: center">Enables the long receipt capture feature - capturing a long receipt with a top and bottom image</td>
-<td style="text-align: right">true</td>
-</tr>
-<tr>
-<td>enableCrop</td>
-<td style="text-align: center">Enables the ability to crop captured images</td>
-<td style="text-align: right">true</td>
-</tr>
-<tr>
-<td>enableFlash</td>
-<td style="text-align: center">Enables the ability to toggle the phone&rsquo;s flash on/off to help capture in low-light situations</td>
-<td style="text-align: right">true</td>
-</tr>
-<tr>
-<td>defaultToAutoCapture</td>
-<td style="text-align: center">Starts the capture screen with auto-capture mode enabled by default</td>
-<td style="text-align: right">true</td>
-</tr>
-</tbody></table>
-
-<p><strong>Example</strong></p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">features</span> <span class="o">=</span> <span class="kt">CaptureFeatures</span><span class="p">()</span>
-<span class="n">features</span><span class="o">.</span><span class="n">enableFlash</span> <span class="o">=</span> <span class="kc">false</span>
-<span class="n">features</span><span class="o">.</span><span class="n">enableImageGallery</span> <span class="o">=</span> <span class="kc">false</span>
-<span class="n">features</span><span class="o">.</span><span class="n">defaultToAutoCapture</span> <span class="o">=</span> <span class="kc">false</span>
-<span class="n">features</span><span class="o">.</span><span class="n">enableCrop</span> <span class="o">=</span> <span class="kc">false</span>
-<span class="n">features</span><span class="o">.</span><span class="n">enableAddPage</span> <span class="o">=</span> <span class="kc">false</span>
-
-<span class="k">let</span> <span class="nv">captureConfig</span> <span class="o">=</span> <span class="kt">CaptureConfiguration</span><span class="p">(</span><span class="nv">bundle</span><span class="p">:</span> <span class="n">customBundle</span><span class="p">,</span> <span class="nv">features</span><span class="p">:</span> <span class="n">features</span><span class="p">)</span>
-
-<span class="c1">// Then initialize and present the module</span>
 </code></pre>
 
           </div>
@@ -400,7 +245,7 @@ xcrun actool <span class="k">${</span><span class="nv">PATH_TO_ASSETS</span><spa
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://getsensibill.com/" target="_blank" rel="external">Sensibill Inc.</a>. All rights reserved. (Last updated: 2020-11-17)</p>
+      <p>&copy; 2021 <a class="link" href="https://getsensibill.com/" target="_blank" rel="external">Sensibill Inc.</a>. All rights reserved. (Last updated: 2021-03-12)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

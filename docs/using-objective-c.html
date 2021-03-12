@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Integration  Reference</title>
+    <title>Using Objective-C  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
   <body>
 
 
-    <a title="Integration  Reference"></a>
+    <a title="Using Objective-C  Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -35,7 +35,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html"> Reference</a>
       <img class="carat" src="img/carat.png" />
-      Integration  Reference
+      Using Objective-C  Reference
     </p>
 
     <div class="content-wrapper">
@@ -164,79 +164,24 @@
         <section class="section">
           <div class="section-content top-matter">
             
-            <h1 id='integration' class='heading'>Integration</h1>
-<h2 id='overview' class='heading'>Overview</h2>
+            <h1 id='using-objective-c' class='heading'>Using Objective-C</h1>
 
-<p>Sensibill Capture is a standalone framework or static library that allows for the scanning and cropping of receipts and documents. The module can scan and return up to three documents simultaneously to the integrator&rsquo;s app.</p>
-<h2 id='importing-capture-module' class='heading'>Importing Capture Module</h2>
-<h3 id='swift' class='heading'>Swift</h3>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SensibillCapture</span>
-</code></pre>
-<h3 id='objective-c' class='heading'>Objective-C</h3>
-<pre class="highlight objective_c"><code><span class="k">@import</span> <span class="n">SensibillCapture</span><span class="p">;</span>
-</code></pre>
+<p>If your application plans to use Classes or APIs of the Capture SDK from Objective-C code, you may encounter issues with classes not being found. This is because our public <em>Swift</em> classes/enums/protocols are prefixed with <strong>SBL</strong> when exposed to Objective-C. The main reason for this is to prevent namespace collisions with your App&rsquo;s class names. Since classes imported from Swift can be specified with their full namespace, only those imported from Objective-C are prefixed.</p>
 
-<p><strong>Note:</strong> CocoaPods must be used if you want to include Capture as a static module. In this case use the following import statement in swift.</p>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SensibillCaptureStatic</span>
-</code></pre>
-<h2 id='implementing-a-capture-delegate' class='heading'>Implementing a Capture Delegate</h2>
+<p>For example, the <code><a href="Classes/CaptureConfiguration.html">CaptureConfiguration</a></code> swift class can be accessed as:</p>
 
-<p>Capture provides a <code><a href="Protocols/CaptureNavigationControllerDelegate.html">CaptureNavigationControllerDelegate</a></code> protocol to return an array of captured images back to the integrator&rsquo;s app.  The protocol can be implemented as an extension to an existing class, which instantiates capture (as shown below), or in a different class.</p>
+<ul>
+<li>In <strong>Swift</strong>:
 
-<p>The <code><a href="Protocols/CaptureNavigationControllerDelegate.html">CaptureNavigationControllerDelegate</a></code> will return 1-3 photos captured by a user in an <code>images</code> array. If a user cancels the operation, or an error occurrs the <code>images</code> array will be empty.</p>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">YourClass</span><span class="p">:</span> <span class="kt">CaptureNavigationControllerDelegate</span> <span class="p">{</span>
+<ul>
+<li><code><a href="Classes/CaptureConfiguration.html">CaptureConfiguration</a></code> or <code>SensibillCapture.CaptureConfiguration</code></li>
+</ul></li>
+<li>In <strong>Objective-C</strong>:
 
-     <span class="kd">func</span> <span class="nf">captureNavigationController</span><span class="p">(</span><span class="n">_</span> <span class="nv">controller</span><span class="p">:</span> <span class="kt">CaptureNavigationController</span><span class="p">,</span> <span class="n">didCapture</span> <span class="nv">images</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIImage</span><span class="p">])</span> <span class="p">{</span>
-
-        <span class="nf">print</span><span class="p">(</span><span class="s">"Received </span><span class="se">\(</span><span class="n">images</span><span class="o">.</span><span class="n">count</span><span class="se">)</span><span class="s"> photos"</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-<h3 id='sending-images-to-the-sensibill-api' class='heading'>Sending Images to the Sensibill API</h3>
-
-<p>One of the common use cases for the Capture module is sending the resulting images to Sensibill&rsquo;s API for receipt processing. To ensure a successful processing of the receipt by Sensibill&rsquo;s API, the images must comply with the size and quality requirements specified in Sensibill API documentation. </p>
-
-<p>The Capture module provides a <code>jpegDataForSensibillAPI()</code> method in a <code>UIImage</code> extension, which converts images to a format optimal for the Sensibill API. The method can be used upon receival of the images in the  <code>didCapture</code> method described above:</p>
-<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">captureNavigationController</span><span class="p">(</span><span class="n">_</span> <span class="nv">controller</span><span class="p">:</span> <span class="kt">CaptureNavigationController</span><span class="p">,</span> <span class="n">didCapture</span> <span class="nv">images</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIImage</span><span class="p">])</span> <span class="p">{</span>
-
-    <span class="k">for</span> <span class="n">image</span> <span class="k">in</span> <span class="n">images</span> <span class="p">{</span>
-
-        <span class="k">let</span> <span class="nv">jpegData</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="nf">jpegDataForSensibillAPI</span><span class="p">()</span>
-        <span class="c1">// Submit jpegData to Sensibill API</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-<h2 id='presenting-capture' class='heading'>Presenting Capture</h2>
-
-<p>The module starts with the camera preview, and is presented modally. To initialize and present the module:</p>
-
-<ol>
-<li>Import <code>SensibillCapture</code> or <code>SensibillCaptureStatic</code> as explained above.</li>
-<li>Instantiate <code><a href="Classes/CaptureNavigationController.html">CaptureNavigationController</a></code></li>
-<li>Select a <code>modalPresentationStyle</code> for the <code><a href="Classes/CaptureNavigationController.html">CaptureNavigationController</a></code>.</li>
-<li>Set a <code>captureDelegate</code> for <code><a href="Classes/CaptureNavigationController.html">CaptureNavigationController</a></code>.</li>
-<li>Present the <code><a href="Classes/CaptureNavigationController.html">CaptureNavigationController</a></code>.</li>
-</ol>
-
-<p>In the following example, <code>overFullScreen</code> was selected as the <code>modalPresentationStyle</code>, and <code>captureDelegate</code> is set to the class itself, assuming <code>extension YourClass: CaptureNavigationControllerDelegate</code> was implemented:</p>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SensibillCapture</span>
-<span class="c1">// or SensibillCaptureStatic if using the static library option</span>
-
-<span class="o">...</span>
-
-<span class="kd">class</span> <span class="kt">YourClass</span> <span class="p">{</span>
-
-<span class="o">...</span>
-
-    <span class="k">let</span> <span class="nv">captureNavigationController</span> <span class="o">=</span> <span class="kt">CaptureNavigationController</span><span class="p">()</span>
-    <span class="n">captureNavigationController</span><span class="o">.</span><span class="n">modalPresentationStyle</span> <span class="o">=</span> <span class="o">.</span><span class="n">overFullScreen</span>
-    <span class="n">captureNavigationController</span><span class="o">.</span><span class="n">captureDelegate</span> <span class="o">=</span> <span class="k">self</span>
-    <span class="nf">present</span><span class="p">(</span><span class="n">captureNavigationController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
-
-<span class="o">...</span>
-
-<span class="p">}</span>
-</code></pre>
+<ul>
+<li><code>SBLCaptureConfiguration</code></li>
+</ul></li>
+</ul>
 
           </div>
         </section>

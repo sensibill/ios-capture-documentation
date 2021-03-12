@@ -1,6 +1,13 @@
 {
   "warnings": [
     {
+      "file": "/Users/stevenandrews/sdk-ios-capture/SensibillCapture/Source/Capture/Configuration/CaptureConfigurationBuilder.swift",
+      "line": 11,
+      "symbol": "CaptureConfigurationBuilder",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/stevenandrews/sdk-ios-capture/SensibillCapture/Source/Capture/Configuration/CaptureFeatures.swift",
       "line": 14,
       "symbol": "CaptureFeatures.getInstance()",
@@ -12,6 +19,20 @@
       "line": 16,
       "symbol": "BlurDetection",
       "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/stevenandrews/sdk-ios-capture/SensibillCapture/Source/Components/Location/DefaultCaptureLocationProvider.swift",
+      "line": 89,
+      "symbol": "DefaultCaptureLocationProvider.locationManager(_:didUpdateLocations:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/stevenandrews/sdk-ios-capture/SensibillCapture/Source/Components/Location/DefaultCaptureLocationProvider.swift",
+      "line": 97,
+      "symbol": "DefaultCaptureLocationProvider.locationManager(_:didFailWithError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {

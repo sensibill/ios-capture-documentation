@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Using in Objective-C  Reference</title>
+    <title>Changelog  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
   <body>
 
 
-    <a title="Using in Objective-C  Reference"></a>
+    <a title="Changelog  Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -35,7 +35,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html"> Reference</a>
       <img class="carat" src="img/carat.png" />
-      Using in Objective-C  Reference
+      Changelog  Reference
     </p>
 
     <div class="content-wrapper">
@@ -45,22 +45,34 @@
             <a class="nav-group-name-link" href="Guides.html">Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="installation.html">Installation</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="compatibility.html">Compatibility</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="customization.html">Customization</a>
+                <a class="nav-group-task-link" href="installation.html">Installation</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="entry-points.html">Entry Points</a>
+                <a class="nav-group-task-link" href="setup.html">Setup</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="integration.html">Integration</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="using-in-objective-c.html">Using in Objective-C</a>
+                <a class="nav-group-task-link" href="customization.html">Customization</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="using-objective-c.html">Using Objective-C</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="troubleshooting.html">Troubleshooting</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="reference.html">Reference</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="changelog.html">Changelog</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="migration-guide.html">Migration Guide</a>
               </li>
             </ul>
           </li>
@@ -75,6 +87,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/CaptureConfiguration.html">CaptureConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CaptureConfigurationBuilder.html">CaptureConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/CaptureFeatures.html">CaptureFeatures</a>
@@ -121,9 +136,6 @@
                 <a class="nav-group-task-link" href="Extensions/Float.html">Float</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Extensions/UIButton.html">UIButton</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/UIColor.html">UIColor</a>
               </li>
               <li class="nav-group-task">
@@ -138,16 +150,10 @@
             <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/ButtonTheme.html">ButtonTheme</a>
+                <a class="nav-group-task-link" href="Protocols/CaptureLocationProvider.html">CaptureLocationProvider</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/CaptureNavigationControllerDelegate.html">CaptureNavigationControllerDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/Presentable.html">Presentable</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/PresentableButton.html">PresentableButton</a>
               </li>
             </ul>
           </li>
@@ -158,23 +164,35 @@
         <section class="section">
           <div class="section-content top-matter">
             
-            <h1 id='how-to-use-in-objective-c' class='heading'>How to use in Objective-C</h1>
-
-<p>If your application plans to use Classes or APIs of the Capture SDK from Objective-C code, you may encounter issues with classes not being found. This is because our public <em>Swift</em> classes/enums/protocols are prefixed with <strong>SBL</strong> when exposed to Objective-C. The main reason for this is to prevent namespace collisions with your App&rsquo;s class names. Since classes imported from Swift can be specified with their full namespace, only those imported from Objective-C are prefixed.</p>
-
-<p>For example, the <code><a href="Classes/CaptureConfiguration.html">CaptureConfiguration</a></code> swift class can be accessed as:</p>
+            <h1 id='changelog' class='heading'>Changelog</h1>
+<h2 id='release-1-26-1' class='heading'>Release 1.26.1</h2>
+<h3 id='new-features' class='heading'>New Features</h3>
 
 <ul>
-<li>In <strong>Swift</strong>:
+<li>A <code>UIImage</code> extension now provides a <code>jpegDataForSensibillAPI()</code> method, which converts a <code>UIImage</code>, returned by the Capture module, to JPEG <code>Data</code> that is compatible with Sensibill&rsquo;s API. See <a href="integration.html">Integration</a> for more information.</li>
+</ul>
+<h3 id='compatibility' class='heading'>Compatibility</h3>
 
 <ul>
-<li><code><a href="Classes/CaptureConfiguration.html">CaptureConfiguration</a></code> or <code>SensibillCapture.CaptureConfiguration</code></li>
-</ul></li>
-<li>In <strong>Objective-C</strong>:
+<li>Xcode 12.4 is now supported.</li>
+<li><code><a href="Protocols/CaptureNavigationControllerDelegate.html">CaptureNavigationControllerDelegate</a></code> can now be implemented by an Objective-C class</li>
+</ul>
+<h3 id='customization' class='heading'>Customization</h3>
 
 <ul>
-<li><code>SBLCaptureConfiguration</code></li>
-</ul></li>
+<li>Resolved an issue where some buttons could not be seen on a light background</li>
+</ul>
+<h3 id='accessibility-updates' class='heading'>Accessibility updates</h3>
+
+<ul>
+<li>Resolved an issue where the Previous Page indicator was missing its accessibility hint.</li>
+</ul>
+<h2 id='release-1-26-0' class='heading'>Release 1.26.0</h2>
+<h3 id='accessibility-updates' class='heading'>Accessibility updates</h3>
+
+<ul>
+<li>VoiceOver announcements for the auto-capture button have changed. Intead of &ldquo;Auto-Capture on/off/disabled&rdquo;, the statements have been clarified: &ldquo;Auto-Capture <strong>is</strong> on/off/disabled&rdquo;</li>
+<li>VoiceOver announcements for the flash button have changed. Intead of &ldquo;Flash on/off&rdquo;, the statements have been clarified: &ldquo;Flash <strong>is</strong> on/off&rdquo;</li>
 </ul>
 
           </div>
@@ -184,7 +202,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://getsensibill.com/" target="_blank" rel="external">Sensibill Inc.</a>. All rights reserved. (Last updated: 2020-11-17)</p>
+      <p>&copy; 2021 <a class="link" href="https://getsensibill.com/" target="_blank" rel="external">Sensibill Inc.</a>. All rights reserved. (Last updated: 2021-03-12)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Entry Points  Reference</title>
+    <title>Migration Guide  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
   <body>
 
 
-    <a title="Entry Points  Reference"></a>
+    <a title="Migration Guide  Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -35,7 +35,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html"> Reference</a>
       <img class="carat" src="img/carat.png" />
-      Entry Points  Reference
+      Migration Guide  Reference
     </p>
 
     <div class="content-wrapper">
@@ -45,22 +45,34 @@
             <a class="nav-group-name-link" href="Guides.html">Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="installation.html">Installation</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="compatibility.html">Compatibility</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="customization.html">Customization</a>
+                <a class="nav-group-task-link" href="installation.html">Installation</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="entry-points.html">Entry Points</a>
+                <a class="nav-group-task-link" href="setup.html">Setup</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="integration.html">Integration</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="using-in-objective-c.html">Using in Objective-C</a>
+                <a class="nav-group-task-link" href="customization.html">Customization</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="using-objective-c.html">Using Objective-C</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="troubleshooting.html">Troubleshooting</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="reference.html">Reference</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="changelog.html">Changelog</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="migration-guide.html">Migration Guide</a>
               </li>
             </ul>
           </li>
@@ -75,6 +87,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/CaptureConfiguration.html">CaptureConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CaptureConfigurationBuilder.html">CaptureConfigurationBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/CaptureFeatures.html">CaptureFeatures</a>
@@ -121,9 +136,6 @@
                 <a class="nav-group-task-link" href="Extensions/Float.html">Float</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Extensions/UIButton.html">UIButton</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/UIColor.html">UIColor</a>
               </li>
               <li class="nav-group-task">
@@ -138,16 +150,10 @@
             <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/ButtonTheme.html">ButtonTheme</a>
+                <a class="nav-group-task-link" href="Protocols/CaptureLocationProvider.html">CaptureLocationProvider</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/CaptureNavigationControllerDelegate.html">CaptureNavigationControllerDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/Presentable.html">Presentable</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/PresentableButton.html">PresentableButton</a>
               </li>
             </ul>
           </li>
@@ -158,26 +164,23 @@
         <section class="section">
           <div class="section-content top-matter">
             
-            <h1 id='entry-points' class='heading'>Entry Points</h1>
-<h2 id='receipt-capture' class='heading'>Receipt Capture</h2>
+            <h1 id='migration-guide' class='heading'>Migration Guide</h1>
+<h2 id='guides' class='heading'>Guides</h2>
 
-<p>This module currently only has one Entry Point. It is designed to be displayed by the integrator and then to return an array of captured images back to the integrator&rsquo;s app.
-The current entry point is implemented in the following example:</p>
-<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">showCapture</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nv">captureNavigationController</span> <span class="o">=</span> <span class="kt">CaptureNavigationController</span><span class="p">()</span> <span class="c1">// Can also pass a custom config</span>
-    <span class="n">capture</span><span class="o">.</span><span class="n">modalPresentationStyle</span> <span class="o">=</span> <span class="o">.</span><span class="n">fullScreen</span>
-    <span class="n">capture</span><span class="o">.</span><span class="n">captureDelegate</span> <span class="o">=</span> <span class="k">self</span>
-    <span class="nf">present</span><span class="p">(</span><span class="n">capture</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
-<span class="p">}</span>
+<ul>
+<li><a href="#upgrading-from-1-26-0-to-1-26-1">Upgrading from 1.26.0 to 1.26.1</a></li>
+<li><a href="#upgrading-from-1-0-0-to-1-26-0">Upgrading from 1.0.0 to 1.26.0</a></li>
+</ul>
+<h2 id='upgrading-from-1-26-0-to-1-26-1' class='heading'>Upgrading from 1.26.0 to 1.26.1</h2>
 
-<span class="c1">// Delegate Function</span>
-<span class="kd">func</span> <span class="nf">captureNavigationController</span><span class="p">(</span><span class="n">_</span> <span class="nv">controller</span><span class="p">:</span> <span class="kt">CaptureNavigationController</span><span class="p">,</span> <span class="n">didCapture</span> <span class="nv">images</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIImage</span><span class="p">])</span> <span class="p">{</span>
-    <span class="c1">// Image array will be empty if flow was cancelled</span>
-<span class="p">}</span>
+<ul>
+<li>No changes are required.</li>
+</ul>
+<h2 id='upgrading-from-1-0-0-to-1-26-0' class='heading'>Upgrading from 1.0.0 to 1.26.0</h2>
 
-</code></pre>
-
-<p>For a more detailed example and explanation, please see the <a href="integration.html">Integration Guide</a>.</p>
+<ul>
+<li>Xcode 11.x support is dropped. Use Xcode 12.0.1 and up.</li>
+</ul>
 
           </div>
         </section>
@@ -186,7 +189,7 @@ The current entry point is implemented in the following example:</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://getsensibill.com/" target="_blank" rel="external">Sensibill Inc.</a>. All rights reserved. (Last updated: 2020-11-17)</p>
+      <p>&copy; 2021 <a class="link" href="https://getsensibill.com/" target="_blank" rel="external">Sensibill Inc.</a>. All rights reserved. (Last updated: 2021-03-12)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

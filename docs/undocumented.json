@@ -1,75 +1,75 @@
 {
   "warnings": [
     {
-      "file": "/Users/stevenandrews/sdk-ios-capture/SensibillCapture/Source/Capture/Configuration/CaptureConfigurationBuilder.swift",
+      "file": "/Users/vagrant/git/SensibillCapture/Source/Capture/Configuration/CaptureConfigurationBuilder.swift",
       "line": 11,
       "symbol": "CaptureConfigurationBuilder",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stevenandrews/sdk-ios-capture/SensibillCapture/Source/Capture/Configuration/CaptureFeatures.swift",
+      "file": "/Users/vagrant/git/SensibillCapture/Source/Capture/Configuration/CaptureFeatures.swift",
       "line": 14,
       "symbol": "CaptureFeatures.getInstance()",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stevenandrews/sdk-ios-capture/SensibillCapture/Source/Capture/RectangleDetection/BlurDetection.swift",
+      "file": "/Users/vagrant/git/SensibillCapture/Source/Capture/RectangleDetection/BlurDetection.swift",
       "line": 16,
       "symbol": "BlurDetection",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stevenandrews/sdk-ios-capture/SensibillCapture/Source/Components/Location/DefaultCaptureLocationProvider.swift",
+      "file": "/Users/vagrant/git/SensibillCapture/Source/Components/Location/DefaultCaptureLocationProvider.swift",
       "line": 89,
       "symbol": "DefaultCaptureLocationProvider.locationManager(_:didUpdateLocations:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stevenandrews/sdk-ios-capture/SensibillCapture/Source/Components/Location/DefaultCaptureLocationProvider.swift",
+      "file": "/Users/vagrant/git/SensibillCapture/Source/Components/Location/DefaultCaptureLocationProvider.swift",
       "line": 97,
       "symbol": "DefaultCaptureLocationProvider.locationManager(_:didFailWithError:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stevenandrews/sdk-ios-capture/SensibillCapture/Source/Components/SBNavigationController.swift",
+      "file": "/Users/vagrant/git/SensibillCapture/Source/Components/SBNavigationController.swift",
       "line": 11,
       "symbol": "SBNavigationController",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stevenandrews/sdk-ios-capture/SensibillCapture/Source/Components/SBNavigationController.swift",
+      "file": "/Users/vagrant/git/SensibillCapture/Source/Components/SBNavigationController.swift",
       "line": 14,
       "symbol": "SBNavigationController.shouldAutorotate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stevenandrews/sdk-ios-capture/SensibillCapture/Source/Components/SBNavigationController.swift",
+      "file": "/Users/vagrant/git/SensibillCapture/Source/Components/SBNavigationController.swift",
       "line": 18,
       "symbol": "SBNavigationController.supportedInterfaceOrientations",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stevenandrews/sdk-ios-capture/SensibillCapture/Source/Components/SBNavigationController.swift",
+      "file": "/Users/vagrant/git/SensibillCapture/Source/Components/SBNavigationController.swift",
       "line": 22,
       "symbol": "SBNavigationController.preferredInterfaceOrientationForPresentation",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stevenandrews/sdk-ios-capture/SensibillCapture/Source/Theme/CaptureTheme.swift",
+      "file": "/Users/vagrant/git/SensibillCapture/Source/Theme/CaptureTheme.swift",
       "line": 231,
       "symbol": "CaptureTheme.init(defaults:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/stevenandrews/sdk-ios-capture"
+  "source_directory": "/Users/vagrant/git"
 }
